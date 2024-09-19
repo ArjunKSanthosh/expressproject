@@ -1,6 +1,6 @@
 import donorSchema from './models/donor.model.js'
 
-export async function Home (req,res){
+export  async function Home(req,res){
     try{
         console.log(req.body);
         const{...donor}=req.body;

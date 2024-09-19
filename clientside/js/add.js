@@ -7,5 +7,24 @@ document.getElementById("frm").addEventListener("submit",async(e)=>{
     const phone=document.getElementById("phone").value;
     const blood_group=document.getElementById("blood_group").value;
     console.log(name,age,dob,place,phone,blood_group);
-    
-})
+    fetch("http://localhost:3000/api/adddonor",{
+        method:"POST",
+        headers:{"Content-Type" : "application/json"},
+        body:JSON.stringify({
+            name:name,
+            age:age,
+            place:place,
+            phone:phone,
+            blood_group:blood_group
+        }),
+    })
+    .then((res)=>{
+        console.log(res);
+        if(res.status==201) {alert("success");} else{ alert("error");}
+        
+    })
+    .catch((error)=>{
+        console.log(error);
+        
+    });
+});

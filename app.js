@@ -4,10 +4,11 @@ import env from "dotenv"
 import router from "./router.js";
 
 env.config()
+
 const app=express();
 
 app.use(express.static("clientside"))
-app.use(express.json)
+app.use(express.json())
 app.use("/api",router)
 
 connection().then(()=>{
