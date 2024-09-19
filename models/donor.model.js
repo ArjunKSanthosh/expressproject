@@ -1,0 +1,11 @@
+import mongoose from "moongoose";
+
+const donorSchema=new mongoose.Schema({
+    name:{type:String},
+    age:{type:Number},
+    dob:{type:String},
+    place:{type:String},
+    phone:{type:String},
+    blood_group:{type:String}
+});
+export default mongoose.model.Donors||mongoose.model("Donor",donorSchema);
