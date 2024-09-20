@@ -13,6 +13,7 @@ document.getElementById("frm").addEventListener("submit",async(e)=>{
         body:JSON.stringify({
             name:name,
             age:age,
+            dob:dob,
             place:place,
             phone:phone,
             blood_group:blood_group
@@ -20,7 +21,16 @@ document.getElementById("frm").addEventListener("submit",async(e)=>{
     })
     .then((res)=>{
         console.log(res);
-        if(res.status==201) {alert("success");} else{ alert("error");}
+        if(res.status==201) 
+            {
+                alert("success");
+            }
+        else if(res.status==400){
+            alert("phone number already exists");
+        } 
+        else{
+             alert("error");
+            }
         
     })
     .catch((error)=>{
