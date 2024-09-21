@@ -8,11 +8,10 @@ export  async function Home(req,res){
         console.log(check);
         if(!check){
         const data=await donorSchema.create({...donor});
-        res.status(201).send({msg:data});
+        return res.status(201).send({msg:data});
         }
         return res.status(400).send({msg:"data exist"});
 
-        
     }catch(error){
         res.status(404).send({msg:error})
     }
@@ -44,5 +43,9 @@ export async function editDonor(req,res){
     const {...donor}=req.body;
     const data=await donorSchema.updateOne({_id},{$set:{...donor}});
     res.status(201).send(data);
-    
+}
+export async function deleteDonor(req,res) {
+    const {_id}=req.params;
+    const data=await donorSchema.deleteOne({_id});
+    res.status(201).send("deleted");
 }
