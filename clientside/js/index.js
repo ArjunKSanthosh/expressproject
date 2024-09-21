@@ -13,8 +13,8 @@ async function getDonors(){
                     <td>${donor.phone}</td>
                     <td>${donor.blood_group}</td>
                     <td class="actions">
-                        <button>Edit</button>
-                        <button>Delete</button>
+                    <a href="./pages/edit.html?id=${donor._id}"><button>Edit</button></a>
+                    <button>Delete</button>
                     </td>
                 </tr> 
         `
